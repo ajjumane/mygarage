@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+  
+
+    .heading {
+      text-align: center;
+      font-size: 2.8rem;
+      margin: 40px 0 30px;
+      font-weight: 700;
+      color: #9898a0;
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 0 40px 60px;
+    }
+
+    .model-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 255, 255, 0.05);
+      transition: transform 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .model-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: 0.4s ease;
+    }
+
+    .model-card img:not(:first-child) {
+      display: none; /* Hide all images except the first */
+    }
+
+    .model-card:hover {
+      transform: scale(1.03);
+    }
+
+    .model-card p {
+      margin: 12px 0 16px;
+      font-size: 1.2rem;
+      color: #b0b0b9;
+      font-weight: bold;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .modal-controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .modal-controls button {
+      background: #0ff;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .modal-controls button:hover {
+      background: #00cccc;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="bikes.html">Bikes</a></li>
+        <li><a href="goal.html">Goal</a></li>
+        <li class="active"><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 class="heading">Bikes & Cars — The Visual Edition</h1>
+
+  <div class="gallery-container">
+    <div class="model-card">
+      <img src="images/f1.png" />
+      <img src="images/f2.png" />
+      <img src="images/f3.png" />
+      <img src="images/f4.png" />
+      <img src="images/f5.png" />
+      <p>Ferrari F8 Tributo</p>
+    </div>
+
+    <div class="model-card">
+      <img src="images/M4.jpeg" />
+      <img src="images/M42.jpeg" />
+      <img src="images/M43.jpeg" />
+      <img src="images/m44.jpeg" />
+      <img src="images/m45.jpeg" />
+      <p>BMW M4</p>
+    </div>
+
+    <div class="model-card">
+      <img src="images/bmw1.jpeg" />
+      <img src="images/bmw2.jpeg" />
+      <img src="images/bmw3.jpeg" />
+      <img src="images/bmw4.jpeg" />
+      <img src="images/bmw5.webp" />
+      <p>BMW S1000RR</p>
+    </div>
+
+    <div class="model-card">
+      <img src="images/duc4.jpeg" />
+      <img src="images/duc2.jpeg" />
+      <img src="images/duc3.jpeg" />
+      <img src="images/duc4.webp" />
+      <img src="images/duc1.jpeg" />
+      <p>Ducati Panigale V4</p>
+    </div>
+
+    <div class="model-card">
+      <img src="images/gwag.jpeg" />
+      <img src="images/gwag2.jpeg" />
+      <img src="images/gwag3.jpeg" />
+      <img src="images/gwag4.jpeg" />
+      <img src="images/gwag5.jpeg" />
+      <p>Mercedes-Benz G-Class</p>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" />
+    <div class="modal-controls">
+      <button onclick="prevImage()">Previous</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.querySelectorAll('.model-card').forEach(card => {
+      card.addEventListener('click', () => {
+        currentImages = Array.from(card.querySelectorAll('img')).map(img => img.src);
+        currentIndex = 0;
+        showImage(currentImages[currentIndex]);
+        modal.style.display = 'flex';
+      });
+    });
+
+    function showImage(src) {
+      modalImage.src = src;
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    function nextImage() {
+      if (currentImages.length > 0) {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        showImage(currentImages[currentIndex]);
+      }
+    }
+
+    function prevImage() {
+      if (currentImages.length > 0) {
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        showImage(currentImages[currentIndex]);
+      }
+    }
+
+    // ESC to close
+    window.addEventListener('keydown', e => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>

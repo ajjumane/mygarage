@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bikes - My Garage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+     <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="cars.html" target="_self">Cars</a></li>
+        <li class="active"><a href="bikes.html" target="_self">Bikes</a></li>
+        <li><a href="goal.html">Goal</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="bike-section">
+    <div class="info">
+      <h2>BMW S1000 RR</h2>
+      <p class="description">⚙️Engine : 999 cc, Inline-4<br>
+                              🗲 Power : 206.5 bhp 🔩 Torque : 113 Nm<br>
+                              ⏲ Mileage : 15 kmpl<br>
+                              0-100 km/h in 3.2s<br>
+                              A superbike that screams Italian passion.</p>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/bmw1.jpeg" class="active" />
+      <img src="images/bmw2.jpeg" />
+      <img src="images/bmw3.jpeg" />
+      <img src="images/bmw4.jpeg" />
+      <img src="images/bmw5.webp" />
+
+    </div>
+  </section>
+
+    <section class="bike-section">
+    <div class="info">
+      <h2>Triumph Street Triple RS</h2>
+      <p class="description">⚙️Engine : 765 cc, Inline-3<br>🗲 Power : 120.5 bhp 🔩 Torque : 80 Nm<br>⏲ Top Speed : 220 kmph<br>0-100 km/h in 3.5s<br>A streetfighter that roars with British aggression.</p>
+   
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/trum1.jpg" class="active" />
+      <img src="images/trum2.jpg" />
+      <img src="images/trum3.png" />
+      <img src="images/trum4.jpg" />
+      <img src="images/trum5.jpg" />
+    </div>
+  </section>
+
+  <section class="bike-section">
+    <div class="info">
+      <h2>Ducati Panigale V4</h2>
+      <p class="description">⚙️Engine : 1103 cc, V-4<br>🗲 Power : 215.5 bhp 🔩 Torque : 123.6 Nm<br>⏲ Top Speed : 299 kmph<br>0-100 km/h in 2.8s<br>A superbike born from MotoGP, crafted for adrenaline.</p>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/duc4.jpeg" class="active" />
+      <img src="images/duc2.jpeg" />
+      <img src="images/duc3.jpeg" />
+      <img src="images/duc4.webp" />
+      <img src="images/duc1.jpeg" />
+    </div>
+  </section>
+
+  <!-- Add more bike models here -->
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

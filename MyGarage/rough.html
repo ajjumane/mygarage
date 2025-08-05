@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Car & Bike Showcase</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">My Garage</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars.html" target="_blank">Cars</a></li>
+        <li><a href="bikes.html" target="_blank">Bikes</a></li>
+        <li><a href="goal.html" target="_blank">Goal</a></li>
+        <li><a href="gallery.html" target="_blank">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   <section id="home">
+    <div class="info">
+      <h2>Welcome to My Garage</h2>
+      <p>Explore all my favorite cars and bikes in stunning style.</p>
+    </div>
+    <div class="photo">
+      <img src="https://source.unsplash.com/800x600/?garage" class="active" alt="Garage" />
+    </div>
+  </section>
+  
+   <section>
+    <div class="info">
+      <h2>Ferrari F8 Tributo</h2>
+      <p>V12 engine, 0-100 km/h in 2.9s, top speed of 350 km/h. An icon of performance and design.</p>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">❮</button>
+      <button class="next-btn">❯</button>
+      <img src="images/Screenshot 2025-07-23 184932.png" class="active" alt="Lamborghini 1" />
+      <img src="images/Screenshot 2025-07-23 185126.png" alt="Lamborghini 2" />
+      <img src="https://source.unsplash.com/800x600/?lamborghini-sports" alt="Lamborghini 3" />
+    </div>
+  </section>
+
+    <section>
+    <div class="info">
+      <h2>BMW S1000</h2>
+      <p>1103cc engine, 214 hp, track-tuned electronics. A superbike that screams Italian passion.</p>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">❮</button>
+      <button class="next-btn">❯</button>
+      <img src="images/bm1.webp" class="active" alt="Ducati 1" />
+      <img src="images/bm3.jpg" alt="Ducati 2" />
+      <img src="https://source.unsplash.com/800x600/?ducati-v4" alt="Ducati 3" />
+    </div>
+  </section>
+
+  <script>
+    // Scroll animation for sections
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Scroll direction detection for navbar animation
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScrollTop) {
+        navbar.classList.add('scroll-hide'); // down
+      } else {
+        navbar.classList.remove('scroll-hide'); // up
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+    // Image carousel logic
+    const lamboImages = ["images/lamborghini1.jpg", "images/lamborghini2.jpg", "images/lamborghini3.jpg"];
+    const ducatiImages = ["images/ducati1.jpg", "images/ducati2.jpg", "images/ducati3.jpg"];
+
+    const currentIndex = {
+      'lambo-img': 0,
+      'ducati-img': 0
+    };
+
+    function changeImage(id, direction, imagesArray) {
+      currentIndex[id] += direction;
+      if (currentIndex[id] < 0) currentIndex[id] = imagesArray.length - 1;
+      if (currentIndex[id] >= imagesArray.length) currentIndex[id] = 0;
+      document.getElementById(id).src = imagesArray[currentIndex[id]];
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME</title>
+  <link rel="icon" href="garageicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="cars.html" target="_self">Cars</a></li>
+        <li><a href="bikes.html" target="_self">Bikes</a></li>
+        <li><a href="goal.html">Goal</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Welcome Section -->
+  <div class="welcome-wrapper" id="welcome-wrapper">
+    <img src="images/ferpng.png" alt="Car" id="animatedCar" />
+    <div class="title-background">
+      <h1>Wheels of My World</h1>
+      <p class="subtext">Explore all my favorite cars and bikes in stunning style.</p>
+    </div>
+  </div>
+
+  <!-- Ferrari Section -->
+  <section class="car-section">
+    <div class="info">
+      <h2>Ferrari F8 Tributo</h2>
+      <p class="description">⚙️Engine : V12-3902 cc<br>🗲 Power : 710.74 bhp<br>⏲ Top Speed : 340 kmph<br>0-100 km/h in 2.9s <br>An icon of performance and design.</p>
+      <button class="play-sound" data-sound="audio/ferrari.mp3">🔊 REV</button>
+      <audio src="REV/f8.mp4"></audio>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/f1.png" class="active" />
+      <img src="images/f2.png" />
+      <img src="images/f3.png" />
+      <img src="images/f4.png" />
+      <img src="images/f5.png" />
+    </div>
+  </section>
+
+  <!-- BMW M4 Section -->
+  <section class="car-section">
+    <div class="info">
+      <h2>BMW M4</h2>
+      <p class="description">⚙️Engine : Inline-6-2993 cc<br>🗲 Power : 503 bhp 🔩 Torque : 650 Nm<br>⏲ Top Speed : 250 kmph<br>0–100 km/h in 3.5s <br>A masterpiece of precision and power.</p>
+      <button class="play-sound" data-sound="audio/bmw.mp3">🔊 REV</button>
+      <audio src="REV/m4rev.mp4"></audio>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/M4.jpeg" class="active" />
+      <img src="images/M42.jpeg" />
+      <img src="images/M43.jpeg" />
+      <img src="images/m44.jpeg" />
+      <img src="images/m45.jpeg" />
+    </div>
+  </section>
+
+  <!-- BMW S1000 RR -->
+  <section class="bike-section">
+    <div class="info">
+      <h2>BMW S1000 RR</h2>
+      <p class="description">⚙️Engine : 999 cc, Inline-4<br>🗲 Power : 206.5 bhp 🔩 Torque : 113 Nm<br>⏲ Top Speed : 303 kmph<br>0-100 km/h in 3.2s<br>A superbike that screams German precision.</p>
+      <button class="play-sound" data-sound="audio/s1000rr.mp3">🔊 REV</button>
+      <audio src="REV/s1000rev.mp4"></audio>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/bmw1.jpeg" class="active" />
+      <img src="images/bmw2.jpeg" />
+      <img src="images/bmw3.jpeg" />
+      <img src="images/bmw4.jpeg" />
+      <img src="images/bmw5.webp" />
+    </div>
+  </section>
+
+  <section class="bike-section">
+    <div class="info">
+      <h2>Triumph Street Triple RS</h2>
+      <p class="description">⚙️Engine : 765 cc, Inline-3<br>🗲 Power : 120.5 bhp 🔩 Torque : 80 Nm<br>⏲ Top Speed : 220 kmph<br>0-100 km/h in 3.5s<br>A streetfighter that roars with British aggression.</p>
+      <button class="play-sound" data-sound="audio/s1000rr.mp3">🔊 REV</button>
+      <audio src="images/trumrev.mp4"></audio>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/trum1.jpg" class="active" />
+      <img src="images/trum2.jpg" />
+      <img src="images/trum3.png" />
+      <img src="images/trum4.jpg" />
+      <img src="images/trum5.jpg" />
+    </div>
+  </section>
+  
+
+  <!-- Ducati Panigale V4 -->
+  <section class="bike-section">
+    <div class="info">
+      <h2>Ducati Panigale V4</h2>
+      <p class="description">⚙️Engine : 1103 cc, V-4<br>🗲 Power : 215.5 bhp 🔩 Torque : 123.6 Nm<br>⏲ Top Speed : 299 kmph<br>0-100 km/h in 2.8s<br>A superbike born from MotoGP, crafted for adrenaline.</p>
+      <button class="play-sound" data-sound="audio/panigale.mp3">🔊 REV</button>
+      <audio src="REV/ducatirev.mp4"></audio>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/duc4.jpeg" class="active" />
+      <img src="images/duc2.jpeg" />
+      <img src="images/duc3.jpeg" />
+      <img src="images/duc4.webp" />
+      <img src="images/duc1.jpeg" />
+    </div>
+  </section>
+
+  <!-- Mercedes G-Wagon -->
+  <section class="car-section">
+    <div class="info">
+      <h2>Mercedes-Benz G-Class</h2>
+      <p class="description">⚙️Engine : V8-2925 cc<br>🗲 Power : 326 bhp 🔩 Torque : 700 Nm<br>⏲ Top Speed : 210 kmph<br>0–100 km/h in 6.4s <br>Luxury and power wrapped in rugged elegance.</p>
+      <button class="play-sound" data-sound="audio/gwagon.mp3">🔊 REV</button>
+      <audio src="REV/gwagonrev.mp4"></audio>
+    </div>
+    <div class="photo">
+      <button class="prev-btn">⮜</button>
+      <button class="next-btn">⮞</button>
+      <img src="images/gwag.jpeg" class="active" />
+      <img src="images/gwag2.jpeg" />
+      <img src="images/gwag3.jpeg" />
+      <img src="images/gwag4.jpeg" />
+      <img src="images/gwag5.jpeg" />
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // Animate car on scroll
+  
+
+    // Section fade animation
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Carousel
+    document.querySelectorAll('.photo').forEach(container => {
+      const images = container.querySelectorAll('img');
+      let currentIndex = 0;
+
+      const updateActiveImage = () => {
+        images.forEach((img, i) => {
+          img.classList.toggle('active', i === currentIndex);
+        });
+      };
+
+      container.querySelector('.prev-btn').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateActiveImage();
+      });
+
+      container.querySelector('.next-btn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateActiveImage();
+      });
+
+      updateActiveImage();
+    });
+
+    // Navbar scroll hide
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', function () {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        navbar.classList.add("scroll-hide");
+      } else {
+        navbar.classList.remove("scroll-hide");
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Audio play buttons
+    document.querySelectorAll('.play-sound').forEach(button => {
+      button.addEventListener('click', () => {
+        const audio = button.nextElementSibling;
+
+        // Pause any playing audio
+        document.querySelectorAll('audio').forEach(aud => {
+          if (!aud.paused) aud.pause();
+          aud.currentTime = 0;
+        });
+
+        audio.play();
+      });
+    });
+  </script>
+</body>
+</html>
